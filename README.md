@@ -7,7 +7,7 @@
 ## Profil
 <ul>
   <li>Nama: {nama}</li>
-  <li>NIM: {nim}</li>
+  <li>NIM: 23552012014</li>
   <li>Studi Kasus: {studi kasus}</li>
 </ul>
 
