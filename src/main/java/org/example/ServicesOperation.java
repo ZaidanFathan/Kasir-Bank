@@ -19,7 +19,7 @@ public class ServicesOperation implements Services{
     }
 
     @Override
-    public void tarikTunai(int rekeningId) {
+    public void tarikTunai(int rekeningId, int jumlahTarikTunai) {
 
     }
 
