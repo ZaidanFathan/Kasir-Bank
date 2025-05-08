@@ -10,19 +10,29 @@ public class Main {
             while(true) {
                 System.out.println("\n Menu:");
                 System.out.println("1. Setor tunai:");
+                System.out.println("2. Tarik Tunai");
+                System.out.println("3. Daftar");
+                System.out.println("4. Hitung bunga");
                 System.out.println("5. Exit:");
                 System.out.print("Choose an option: ");
                 int choice = scanner.nextInt();
-
+                String rekeningId;
+                String amount;
                 switch (choice){
                     case 1:
                         System.out.print("Masukkan nomor rekening : ");
-                        String rekeningId = scanner.next();
+                        rekeningId = scanner.next();
                         System.out.print("Masukkan jumlah uang yang ingin disetorkan : ");
-                        String amount = scanner.next();
+                        amount = scanner.next();
                         servicesOperation.setor(Integer.parseInt(rekeningId),Integer.parseInt(amount));
                         break;
-
+                    case 2:
+                        System.out.print("Masukkan nomor rekening : ");
+                        rekeningId = scanner.next();
+                        System.out.print("Masukkan jumlah  yang ingin anda tarik : ");
+                        amount = scanner.next();
+                        servicesOperation.tarikTunai(Integer.parseInt(rekeningId),Integer.parseInt(amount));
+                        break;
                     case 5:
                         System.out.print("Exiting...");
                         System.exit(0);
