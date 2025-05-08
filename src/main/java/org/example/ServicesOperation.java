@@ -26,11 +26,11 @@ public class ServicesOperation implements Services{
 
     @Override
     public void tarikTunai(int rekeningId, int jumlahTarikTunai) {
-
+        String query = "UPDATE rekening SET saldo = saldo - ? WHERE id = ?";
     }
 
     @Override
-    public void createNasabah(Nasabah nasabah, Rekening rekening) {
+    public void createNasabah(Rekening rekening) {
 
     }
 }
