@@ -1,9 +1,6 @@
 package org.example;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.LocalDateTime;
 
 public class ServicesOperation implements Services{
@@ -57,7 +54,34 @@ public class ServicesOperation implements Services{
     }
 
     @Override
-    public void createNasabah(Rekening rekening, String jenis) {
+    public void createNasabah(int jenisRekening, String nama) {
+        String query = "INSERT INTO rekening (jenis, saldo) VALUES (?,?)";
+        String query2 = "INSERT INTO nasabah (nama, rekening_id) VALUES (?,?)";
+        try(PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt2 = connection.prepareStatement(query2)) {
 
+            if (jenisRekening == 1) {
+                stmt.setString(1,"Giro");
+            }else{
+                stmt.setString(1,"Tabungan");
+            }
+
+            stmt.setInt(2,0);
+            stmt.executeUpdate();
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()){
+                if (generatedKeys.next()){
+                    int rekeningId = generatedKeys.getInt(1);
+                    stmt2.setString(1, nama);
+                    stmt2.setInt(2,rekeningId);
+                    stmt2.executeUpdate();
+                    System.out.println("Akun berhasil dibuat");
+                }else{
+                    System.out.println("Gagal mendapatkan ID rekening");
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
