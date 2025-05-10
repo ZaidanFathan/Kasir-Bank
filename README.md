@@ -20,38 +20,39 @@
 ## Penjelasan 4 Pilar OOP dalam Studi Kasus
 
 ### 1. Inheritance
-<p>
+<code>
   public class Tabungan extends Rekening{
     @Override
     public String hitungBunga() {
         return "Bunga sebesar 20%";
     }
 }
-</p>
+</code>
 
 ### 2. Encapsulation
-<p>
+<code>
   private Connection connection;
-</p>
+</code>
 
 ### 3. Polymorphism
-<p>
+<code>
   public interface Services {
     void setor(int rekeningId, int jumlahSetoran);
     void tarikTunai(int rekeningId, int jumlahTarikTunai);
     void createNasabah(int jenisTabungan, String nama);
 }
-
+</code>
+<code>
   public abstract String hitungBunga();
-</p>
+</code>
 
 ### 4. Abstract
-<p>
+<code>
   public abstract class Rekening {
   private int id;
   public abstract String hitungBunga();
 }
-</p>
+</code>
 
 ## Demo Proyek
 <ul>
